@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import SettingsButton from "./SettingsButton";
 import ButtonGroup from "./ButtonGroup";
 import Footer from "./Footer";
 import Head from "./Head";
@@ -8,9 +8,13 @@ function Layout({ title, children }) {
   return (
     <div className="h-screen w-screen flex-col justify-center items-center ">
       <div className="relative h-[95%] w-full max-w-2xl self-center">
-        <div className="absolute bg-green h-28 w-full rounded-b-[50%]"></div>
+        <div className="absolute bg-green h-28 w-full rounded-b-[50%] shadow-xl flex justify-center items-center">
+          <h1 className="text-2xl font-semibold">Hydro Homie</h1>
+        </div>
         <Head title={title} />
-        <Button label="Settings" />
+        <div className=" absolute left-5 top-5">
+          <SettingsButton label="Settings" />
+        </div>
         <div className="w-full h-full flex justify-center items-center">
           {children}
         </div>

@@ -25,7 +25,18 @@ export default function Home() {
               height={125}
             />
           </div>
-          <div className="water h-[300px] w-[250px] absolute bg-blue-300 left-[20px] bottom-[105px] -z-50 "></div>
+
+          {/* <div className="absolute -z-50 left-[50px] bottom-[105px]">
+            <Image
+              priority
+              src="/assets/water-for-homie.svg"
+              alt="Picture of the author"
+              width={250}
+              height={390}
+            />
+          </div> */}
+
+          <div className="water h-[300px] w-[250px] absolute left-[20px] bottom-[105px] -z-50 "></div>
           <div className="relative">
             <div className="waterBlock absolute h-[300px] w-[100px] bottom-[10px] -left-[54px] -rotate-[7.5deg] -z-10"></div>
             <div className="waterBlock absolute h-[300px] w-[100px] bottom-[10px] -right-[51px] rotate-[7.5deg] -z-10"></div>
