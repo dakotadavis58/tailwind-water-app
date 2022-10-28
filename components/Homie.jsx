@@ -2,12 +2,19 @@ import Image from "next/image";
 import React from "react";
 import happyFace from "../public/assets/normal-happy.png";
 import homieOutline from "../public/assets/hydro-homie-outline.png";
-
+// @refresh reset
 function Homie() {
   return (
     <section className="">
       <div className="relative ">
-        <Image src={homieOutline} alt="hydro homie" width={300} height={500} />
+        <Image
+          className="w-[300px]"
+          src={homieOutline}
+          alt="hydro homie"
+          width={300}
+          height={500}
+          priority
+        />
         <div className="absolute top-[46%] left-[20%] z-50">
           <Image src={happyFace} alt="face" width={180} height={125} />
         </div>
