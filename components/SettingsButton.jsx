@@ -3,8 +3,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 function SettingsButton({ label }) {
   return (
-    <button className="rounded-full bg-orange h-14 w-14 flex justify-center items-center">
-      <GiHamburgerMenu style={{ width: "30px", height: "30px" }} />
+    <button className="rounded-full h-14 w-14">
+      <GiHamburgerMenu
+        className="mx-auto my-auto"
+        style={{ width: "24px", height: "24px" }}
+      />
     </button>
   );
 }

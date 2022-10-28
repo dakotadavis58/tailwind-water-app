@@ -28,6 +28,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: Poppins;
+  overflow: hidden;
 }
 
 a {
@@ -102,3 +103,16 @@ a {
     padding: 0 2.6rem;
   }
 }
+
+/* .mask1 {
+  -webkit-mask-image: url(/public/assets/hydro-homie-outline.png);
+  mask-image: url(/public/assets/hydro-homie-outline.png);
+  -webkit-mask-size: 70%;
+  mask-size: 70%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.homie {
+  background-image: url(/public/assets/hydro-homie-outline.png);
+} */
