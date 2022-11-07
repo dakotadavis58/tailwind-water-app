@@ -1,17 +1,23 @@
 import React from "react";
-import { GiWaterDrop } from "react-icons/gi";
+import { IoWaterSharp, IoStatsChart } from "react-icons/io5";
+import { IoMdSettings } from "react-icons/io";
+import { TbQuestionMark } from "react-icons/tb";
 
-function ButtonGroup() {
+function ButtonGroup(props) {
   return (
-    <div className="w-2/3 max-w-xl flex justify-between items-center">
-      <button className="rounded-full bg-blue-400 h-12 w-16">Side</button>
-      <button className="rounded-full bg-blue-400 h-14 w-20 ">
-        <GiWaterDrop
-          className="mx-auto"
-          style={{ width: "30px", height: "30px" }}
-        />
+    <div className="h-full w-[90%] flex justify-between items-center">
+      <button>
+        <IoStatsChart className="text-white h-8 w-8" />
       </button>
-      <button className="rounded-full bg-blue-400 h-12 w-16">Side</button>
+      <button>
+        <IoWaterSharp className="text-white h-8 w-8" />
+      </button>
+      <button>
+        <IoMdSettings className="text-white h-8 w-8" />
+      </button>
+      <button>
+        <TbQuestionMark className="text-white h-8 w-8" />
+      </button>
     </div>
   );
 }

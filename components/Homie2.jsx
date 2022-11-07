@@ -5,17 +5,12 @@ import sadFace from "../public/assets/crying.png";
 import homieOutline from "../public/assets/hydro-homie-outline.png";
 import homieFilled from "../public/assets/homie-filled.svg";
 // @refresh reset
-function Homie() {
+function Homie2() {
   const [face, setFace] = useState("happyFace");
   const sadFaceTopPos = "top-[50%]";
-
-  const handleClick = () => {
-    console.log("clicked homie");
-  };
-
   return (
     <section className="">
-      <div className="relative" onClick={() => handleClick()}>
+      <div className="relative">
         <Image
           className=""
           src={homieOutline}
@@ -25,6 +20,11 @@ function Homie() {
           priority
           objectFit="contain"
         />
+        <div className="absolute top-0 left-0">
+          <div className="mask w-[360px] h-[490px]">
+            <div className="water h-full w-full absolute bottom-5 left-8 -z-50 "></div>
+          </div>
+        </div>
         <div className="absolute top-[46%] left-[27%] z-50">
           <Image
             src={face === "happyFace" ? happyFace : sadFace}
@@ -33,17 +33,13 @@ function Homie() {
             height={125}
           />
         </div>
-        <div className="absolute">
-          {/* max height  */}
-          <div className="water max-h-[280px] h-[200px] w-[250px] absolute bottom-5 left-8 -z-50 "></div>
-          <div className="relative">
-            <div className="waterBlock left-[3px] rotate-[-5.5deg]"></div>
-            <div className="waterBlock absolute right-[-355px] rotate-[5.5deg] -z-10"></div>
-          </div>
+        <div className="relative">
+          <div className="waterBlock absolute h-[300px] w-[100px] bottom-[10px] -left-[54px] -rotate-[7.5deg] -z-10"></div>
+          <div className="waterBlock absolute h-[300px] w-[100px] bottom-[10px] -right-[51px] rotate-[7.5deg] -z-10"></div>
         </div>
       </div>
     </section>
   );
 }
 
-export default Homie;
+export default Homie2;

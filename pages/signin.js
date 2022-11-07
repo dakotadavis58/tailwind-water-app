@@ -1,8 +1,27 @@
-import React, { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsCupStraw } from "react-icons/bs";
 
 function SigninScreen() {
   const [color, setColor] = useState("purple");
+  const { data: session } = useSession();
+  console.log(session);
+
+  const ref = useRef(null);
+  // focuses on first form element
+  useEffect(() => {
+    ref?.current?.focus?.();
+  }, [ref]);
+
+  useEffect(() => {
+    if (session) {
+      router.push("/");
+    }
+  }, [session]);
+
+  const mySignIn = (e) => {
+    signIn("google", { callbackUrl: "/" });
+  };
   return (
     <div
       className={`h-screen w-screen bg-${color}-600 flex flex-col justify-center items-center `}
@@ -12,36 +31,43 @@ function SigninScreen() {
           <BsCupStraw className="text-7xl" />
         </div>
         <h1 className="p-4 text-3xl font-bold">Signup</h1>
-        <div className="flex justify-start p-4 w-[80%]">
-          <form>
+        <div className="flex justify-start items-center p-4 w-[80%]">
+          <form className="flex flex-col" onSubmit={(e) => mySignIn(e)}>
             <label>Name</label>
             <input
-              className={`border-2 border-${color}-600 focus:border-${color}-600 focus:border-2 rounded-xl`}
+              ref={ref}
+              className={`field`}
               type="text"
+              autoComplete="name"
+              onFocus={(e) => e.currentTarget.select()}
             ></input>
             <label>Email</label>
-            <input
-              className={`border-2 border-${color}-600 active:border-${color}-900 rounded-xl`}
-              type="email"
-            ></input>
+            <input className={`field`} type="email"></input>
             <label>Password</label>
-            <input
-              className={`border-2 border-${color}-600 active:border-${color}-900 rounded-xl`}
-              type="password"
-            ></input>
+            <input className={`field`} type="password"></input>
             <label>Confirm Password</label>
-            <input
-              className={`border-2 border-${color}-600 active:border-${color}-900 rounded-xl`}
-              type="password"
-            ></input>
-            <div className="flex flex-col justify-center items-center">
-              <button className=" min-w-[167px] bg-slate-800 text-white text-sm p-4 m-2 mx-auto rounded-xl shadow-lg mt-8">
+            <input className={`field`} type="password"></input>
+            <div className="m-2 flex flex-col justify-center items-center">
+              <button className="btn min-w-[167px] mx-auto mt-8">
                 Sign Up
               </button>
               <div className="mx-auto w-min mb-2">Or</div>
-              <button className="bg-slate-800 text-white text-sm p-4 m-2 rounded-xl shadow-lg">
+              <a
+                target="_blank"
+                className="btn cursor-pointer"
+                onClick={(e) => mySignIn(e)}
+              >
                 Sign Up With Google
-              </button>
+              </a>
+              <div className="flex items-center gap-2">
+                <input type="checkbox" className="chkbox border-purple-600" />
+                <p className="text-xs">
+                  Terms and conditions,{" "}
+                  <span className="text-purple-600 underline">
+                    <a href="#">click here</a>
+                  </span>
+                </p>
+              </div>
             </div>
           </form>
         </div>
